@@ -1,0 +1,13 @@
+clear;clc;
+t=[0.1;0.2;0.3;0.4;0.5;0.6;0.7;0.8;0.9;1.0];
+rou=0.9;
+u_min=0.02;
+lev_max=1000;
+u=COS(t);
+aa=zeros(length(1:lev_max),1);
+ii=1:lev_max;
+aa(ii,1)=rou.^(1-ii)*u_min;
+y1=aa-abs(u);
+y2=(y1>0);
+bb=aa.*y2;
+u_i=bb(find(bb,1));
